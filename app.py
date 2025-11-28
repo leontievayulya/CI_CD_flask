@@ -29,7 +29,7 @@ def add():
 
 
 @app.route('/multi', methods=['GET'])
-def add():
+def multi():
     try:
         a=float(request.args.get('a'))
         b=float(request.args.get('b'))
