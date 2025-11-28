@@ -28,6 +28,16 @@ def add():
     return str(a+b)
 
 
+@app.route('/multi', methods=['GET'])
+def add():
+    try:
+        a=float(request.args.get('a'))
+        b=float(request.args.get('b'))
+    except (TypeError, ValueError):
+        return 'a и b - числа'
+    return str(a*b)
+
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method=="POST":
