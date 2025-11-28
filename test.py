@@ -4,12 +4,13 @@ import unittest
 
 class TestApp(unittest.TestCase):
     def setUp(self):
-        self.client = app.test_client()
+        self.client = app.test_client()  # ← называем client
 
     def test_add_success(self):
-        r=self.app.get('/add?a=3&b=2')
+        r = self.client.get('/add?a=3&b=2')  # ← используем client
         self.assertEqual(r.status_code, 200)
         self.assertEqual(r.data, b'5.0')
+
 
 if __name__ == '__main__':
     unittest.main()
